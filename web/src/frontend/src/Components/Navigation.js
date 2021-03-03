@@ -1,20 +1,30 @@
 import React from 'react';
-import {Button, Form, FormControl, Nav, Navbar} from "react-bootstrap";
+import {Button, Form, FormControl, Image} from "react-bootstrap";
+import {NavLink} from "react-router-dom";
+import logoPhoto from '../images/ms-icon-70x70.png'
 
 const Navigation = () => {
     return (
-        <Navbar bg="primary" variant="dark" fixed="top">
-            <Navbar.Brand href="/home">Systema Bulgaria</Navbar.Brand>
-            <Nav className="mr-auto">
-                <Nav.Link href="/home">Home</Nav.Link>
-                <Nav.Link href="/features">Register</Nav.Link>
-                <Nav.Link href="/pricing">Search Training Partners</Nav.Link>
-            </Nav>
-            <Form inline>
-                <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
-                <Button variant="outline-light">Search</Button>
-            </Form>
-        </Navbar>
+        <nav className="navbar bg-light">
+            <div className='col'>
+                <NavLink exact activeClassName="active-link" to="/">
+                    <Image src={logoPhoto} roundedCircle/>
+                </NavLink>
+            </div>
+            <div className='col'>
+                <NavLink exact activeClassName="active-link" to="/login">Login</NavLink>
+            </div>
+            <div className='col'>
+                <NavLink exact activeClassName="active-link" to="/register">Register</NavLink>
+            </div>
+
+            <div className='col'>
+                <Form inline>
+                    <FormControl type="text" placeholder="Search" className="mr-sm-2"/>
+                    <Button variant="outline-info">Search</Button>
+                </Form>
+            </div>
+        </nav>
     )
 }
 
