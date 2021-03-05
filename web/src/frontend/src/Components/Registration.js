@@ -42,7 +42,7 @@ const Registration = () => {
         setProvince(province);
     }
 
-    const REGISTER = "register";
+    const REGISTER = "/register";
 
 
     const handleRegister = (e) => {
@@ -87,10 +87,18 @@ const Registration = () => {
                     </Form.Group>
                 </Form.Row>
 
-                <Form.Group controlId="formGridEmail">
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" placeholder="Your email" onChange={event => onChangeEmail(event)}/>
-                </Form.Group>
+                <Form.Row>
+                    <Form.Group as={Col} controlId="formGridEmail">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Your email" onChange={event => onChangeEmail(event)}/>
+                    </Form.Group>
+
+                    <Form.Group as={Col} controlId="formGridPassword">
+                        <Form.Label>Password</Form.Label>
+                        <Form.Control type="password" placeholder="Your password" onChange={event => onChangeEmail(event)}/>
+                    </Form.Group>
+                </Form.Row>
+
 
                 <Form.Group controlId="formGridAddress">
                     <Form.Label>Address</Form.Label>
@@ -106,11 +114,35 @@ const Registration = () => {
                     <Form.Group as={Col} controlId="formGridProvince">
                         <Form.Label>Province</Form.Label>
                         <Form.Control as="select" defaultValue="" onChange={event => onChangeProvince(event)}>
-                            <option value=""/>
-                            <option value="Plovdiv">Plovdiv</option>
-                            <option value="Sofia">Sofia</option>
-                            <option value="Varna">Varna</option>
+                            <option disabled={true} value=""/>
+                            <option value="Blagoevgrad">Blagoevgrad</option>
                             <option value="Bourgas">Bourgas</option>
+                            <option value="Dobrich">Dobrich</option>
+                            <option value="Gabrovo">Gabrovo</option>
+                            <option value="Haskovo">Haskovo</option>
+                            <option value="Kardzhali">Kardzhali</option>
+                            <option value="Kyustendil">Kyustendil</option>
+                            <option value="Lovech">Lovech</option>
+                            <option value="Montana">Montana</option>
+                            <option value="Pazardzhik">Pazardzhik</option>
+                            <option value="Pernik">Pernik</option>
+                            <option value="Pleven">Pleven</option>
+                            <option value="Plovdiv">Plovdiv</option>
+                            <option value="Razgrad">Razgrad</option>
+                            <option value="Ruse">Ruse</option>
+                            <option value="Shumen">Shumen</option>
+                            <option value="Silistra">Silistra</option>
+                            <option value="Sliven">Sliven</option>
+                            <option value="Smolyan">Smolyan</option>
+                            <option value="Sofia City">Sofia City</option>
+                            <option value="Sofia (province)">Sofia (province)</option>
+                            <option value="Stara Zagora">Stara Zagora</option>
+                            <option value="Targovishte">Targovishte</option>
+                            <option value="Varna">Varna</option>
+                            <option value="Veliko Tarnovo">Veliko Tarnovo</option>
+                            <option value="Vidin">Vidin</option>
+                            <option value="Vratsa">Vratsa</option>
+                            <option value="Yambol">Yambol</option>
                         </Form.Control>
                     </Form.Group>
 
