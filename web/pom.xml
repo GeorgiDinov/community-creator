@@ -25,10 +25,16 @@
 
         <dependency>
             <groupId>com.georgidinov</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.georgidinov</groupId>
+            <artifactId>model</artifactId>
             <version>${project.version}</version>
         </dependency>
 
+        <!-- Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
