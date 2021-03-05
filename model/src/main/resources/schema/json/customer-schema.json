@@ -34,9 +34,6 @@
         },
         "province": {
           "type": "string"
-        },
-        "postal_code": {
-          "type": "integer"
         }
       },
       "additionalProperties": false

@@ -4,13 +4,15 @@ import {Button, Col, Form} from "react-bootstrap";
 
 const Registration = () => {
 
+    const REGISTRATION_URL = "/register";
+
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
-    const [address, setAddress] = useState("");
+    const [password, setPassword] = useState("");
+    const [street, setStreet] = useState("");
     const [city, setCity] = useState("");
     const [province, setProvince] = useState("");
-    const [successful, setSuccessful] = useState(false);
 
 
     const onChangeFirstName = (e) => {
@@ -28,9 +30,14 @@ const Registration = () => {
         setEmail(email);
     }
 
-    const onChangeAddress = (e) => {
-        const address = e.target.value;
-        setAddress(address);
+    const onChangePassword = (e) => {
+        const password = e.target.value;
+        setPassword(password);
+    }
+
+    const onChangeStreet = (e) => {
+        const street = e.target.value;
+        setStreet(street);
     }
 
     const onChangeCity = (e) => {
@@ -42,29 +49,33 @@ const Registration = () => {
         setProvince(province);
     }
 
-    const REGISTER = "/register";
+
+    function compactRequestObject() {
+        return {
+            firstName,
+            lastName,
+            user_credentials: {
+                email,
+                password
+            },
+            address: {
+                street,
+                city,
+                province
+            }
+        }
+    }
 
 
     const handleRegister = (e) => {
         e.preventDefault();
-        console.log(firstName + " " + lastName + " " + email + " " + address + " " + city + " " + province);
-        setSuccessful(false);
+        let request = compactRequestObject();
+        console.log(request);
+
         return axios
-            .post(REGISTER, {
-                firstName,
-                lastName,
-                email,
-                address,
-                city,
-                province,
-            }).then((response) => {
-                let regUserDTO = {
-                    "id": response.data.id,
-                    "username": response.data.username
-                }
-                console.log(regUserDTO);
-                localStorage.setItem("regUserDTO", JSON.stringify(regUserDTO));
-                setSuccessful(true);
+            .post(REGISTRATION_URL, request)
+            .then((response) => {
+                console.log(response.status);
                 return response.data;
             }).catch((response) => {
                 console.log(response.status);
@@ -95,14 +106,15 @@ const Registration = () => {
 
                     <Form.Group as={Col} controlId="formGridPassword">
                         <Form.Label>Password</Form.Label>
-                        <Form.Control type="password" placeholder="Your password" onChange={event => onChangeEmail(event)}/>
+                        <Form.Control type="password" placeholder="Your password"
+                                      onChange={event => onChangePassword(event)}/>
                     </Form.Group>
                 </Form.Row>
 
 
                 <Form.Group controlId="formGridAddress">
-                    <Form.Label>Address</Form.Label>
-                    <Form.Control placeholder="Street name" onChange={event => onChangeAddress(event)}/>
+                    <Form.Label>Street</Form.Label>
+                    <Form.Control placeholder="Street name" onChange={event => onChangeStreet(event)}/>
                 </Form.Group>
 
                 <Form.Row>
@@ -144,11 +156,6 @@ const Registration = () => {
                             <option value="Vratsa">Vratsa</option>
                             <option value="Yambol">Yambol</option>
                         </Form.Control>
-                    </Form.Group>
-
-                    <Form.Group as={Col} controlId="formGridZip">
-                        <Form.Label>Zip</Form.Label>
-                        <Form.Control/>
                     </Form.Group>
                 </Form.Row>
 

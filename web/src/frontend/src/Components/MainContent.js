@@ -1,4 +1,4 @@
-import TipOfTheDayContainer from "./TipoOfTheDayContainer";
+import TipOfTheDayContainer from "./TipOfTheDayContainer";
 import FormContainer from "./FormContainer";
 
 const MainContent = () => {

@@ -1,4 +1,4 @@
-import TipOfTheDay from "./TopOfTheDay";
+import TipOfTheDay from "./TipOfTheDay";
 
 const TipOfTheDayContainer = () => {
     return (
