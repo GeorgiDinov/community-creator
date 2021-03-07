@@ -50,7 +50,7 @@ const Registration = () => {
     }
 
 
-    function compactRequestObject() {
+    function createRequestObject() {
         return {
             firstName,
             lastName,
@@ -63,13 +63,18 @@ const Registration = () => {
                 city,
                 province
             }
-        }
+        };
+    }
+
+    function clearRegistrationFields() {
+        document.getElementById('registrationForm').reset();
     }
 
 
     const handleRegister = (e) => {
         e.preventDefault();
-        let request = compactRequestObject();
+        let request = createRequestObject();
+        clearRegistrationFields();
         console.log(request);
 
         return axios
@@ -84,7 +89,7 @@ const Registration = () => {
 
     return (
         <div className='col'>
-            <Form onSubmit={event => handleRegister(event)}>
+            <Form id="registrationForm" onSubmit={event => handleRegister(event)}>
                 <Form.Row>
                     <Form.Group as={Col} controlId="formGridFirstName">
                         <Form.Label>First Name</Form.Label>

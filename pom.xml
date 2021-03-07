@@ -8,8 +8,8 @@
 
     <modules>
         <module>domain</module>
-        <module>web</module>
         <module>repository</module>
+        <module>web</module>
         <module>model</module>
     </modules>
 

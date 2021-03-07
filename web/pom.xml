@@ -23,14 +23,17 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.georgidinov</groupId>
-            <artifactId>repository</artifactId>
-            <version>${project.version}</version>
-        </dependency>
+        <!-- Api - Model -->
         <dependency>
             <groupId>com.georgidinov</groupId>
             <artifactId>model</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Repositories -->
+        <dependency>
+            <groupId>com.georgidinov</groupId>
+            <artifactId>repository</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -47,6 +50,7 @@
             <version>${springdoc-openapi.version}</version>
         </dependency>
 
+        <!-- Spring Boot Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -63,7 +67,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--Plugins for React app installation and moving to target folder -->
+            <!--Plugin for React app installation -->
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -111,6 +115,7 @@
 
             </plugin>
 
+            <!-- Plugin for moving previously built React App to target folder -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
