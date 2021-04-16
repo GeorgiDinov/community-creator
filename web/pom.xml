@@ -14,8 +14,8 @@
 
     <properties>
         <springdoc-openapi.version>1.5.3</springdoc-openapi.version>
-        <node-version>v14.15.4</node-version>
-        <npm-version>6.14.10</npm-version>
+        <node-version>v14.16.1</node-version>
+        <npm-version>6.14.12</npm-version>
         <maven-frontend-plugin-version>1.11.0</maven-frontend-plugin-version>
         <maven-resource-pugin-version>3.2.0</maven-resource-pugin-version>
     </properties>
@@ -23,12 +23,21 @@
 
     <dependencies>
 
+        <!-- Api - Model -->
         <dependency>
             <groupId>com.georgidinov</groupId>
-            <artifactId>domain</artifactId>
+            <artifactId>model</artifactId>
             <version>${project.version}</version>
         </dependency>
 
+        <!-- Repositories -->
+        <dependency>
+            <groupId>com.georgidinov</groupId>
+            <artifactId>repository</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -41,6 +50,7 @@
             <version>${springdoc-openapi.version}</version>
         </dependency>
 
+        <!-- Spring Boot Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -57,7 +67,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!--Plugins for React app installation and moving to target folder -->
+            <!--Plugin for React app installation -->
             <plugin>
                 <groupId>com.github.eirslett</groupId>
                 <artifactId>frontend-maven-plugin</artifactId>
@@ -105,6 +115,7 @@
 
             </plugin>
 
+            <!-- Plugin for moving previously built React App to target folder -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-resources-plugin</artifactId>
